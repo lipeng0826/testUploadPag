@@ -1,7 +1,7 @@
 {
-  "name": "pinyin",
-  "version": "2.0.4",
-  "description": "",
+  "name": "test-upload-pag",
+  "version": "1.0.4",
+  "description": "business-component",
   "main": "/dist/bundle.js",
   "scripts": {
     "build": "cross-env mode=production webpack",
@@ -44,7 +44,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@aixuexi/axx-general-upload": "^2.0.5",
     "@babel/plugin-transform-runtime": "^7.12.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

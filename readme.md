@@ -1,6 +1,17 @@
-# PinYin
+# 业务组件库
 
-## 使用方式
+## 关键配置
 
-​ 1.使用npm包 ： dist目录下的文件必须是最新的，并且使用git管理的
-​ 2.使用cdn：开发完，部署到远程的cdn
+    ```js
+        externals: [
+        'react',
+        ],
+    ```
+    externals: 将依赖的模块排除,比如使用CDN的方式引入jquery,那么把它排除掉,
+    在打包的时候就不会打包jquery;
+    官网: https://webpack.docschina.org/configuration/externals#root
+
+## 如何调试业务组件
+
+    使用 npm link
+    官网: https://docs.npmjs.com/cli/v8/commands/npm-link

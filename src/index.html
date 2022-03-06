@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="no-store">
+  <title>Document</title>
+</head>
+<style>
+  #svg-container {
+    margin-top: 20px;
+  }
+
+
+  .sc-modal-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .45);
+  }
+
+  .sc-modal-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    outline: 0;
+    z-index: 1000;
+  }
+
+  .sc-modal {
+    width: 608px;
+    box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16);
+    border-radius: 8px;
+    top: 200px;
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+  <button id='add'>添加拼音</button>
+  <button id='addFont'>修改样式</button>
+  <div id="container" class="container"></div>
+</body>
+
+</html>
+<script>
+
+  const onOk = ({ data, html }) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        document.getElementById("container").innerHTML = html;
+        resolve(true)
+      }, 800);
+    });
+  }
+
+  const addBtn = document.querySelector('#add')
+
+  addBtn.addEventListener('click', () => {
+    PinYin({
+      data: undefined,
+      onSubmit: onOk // promise
+    })
+  });
+
+  PinYin({
+    data: undefined,
+    onSubmit: onOk // promise
+  });
+
+
+  let item = 10;
+  const addFont = document.querySelector('#addFont')
+  addFont.addEventListener('click', () => {
+    item +=5;
+    document.querySelector("#container").style.fontSize = `${item}px`;
+    document.querySelector("#container").style.color = "red";
+  });
+
+</script>

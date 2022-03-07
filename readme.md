@@ -15,3 +15,7 @@
 
     使用 npm link
     官网: https://docs.npmjs.com/cli/v8/commands/npm-link
+
+## 其他
+
+    1.使用一个类似antd的文档工具增加入口页面

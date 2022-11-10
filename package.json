@@ -44,9 +44,13 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@babel/plugin-transform-runtime": "^7.12.13",
+    "antd": "^4.20.0",
+    "moment": "^2.29.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6"
+    "react-redux": "^7.2.6",
+    "umi-request": "^1.4.0"
   }
 }

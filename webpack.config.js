@@ -3,6 +3,9 @@ const path = require('path');
 const webpack = require('webpack');
 const mode = process.env.mode || 'development';
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const ijiaoyanHost = 'https://ijiaoyan.aixuexi.com';
+
 module.exports = env => {
 	return ({
 		context: process.cwd(),
@@ -91,7 +94,12 @@ module.exports = env => {
 					pathRewrite: { // 正则匹配，路径重写
 						'^/api': ''
 					}
-				}
+				},
+				'/tiku/': {
+					target: ijiaoyanHost,
+					changeOrigin: true,
+					secure: false,
+				  },
 			}
 		},
 		externals: [

@@ -1,0 +1,50 @@
+.interact-create-lesson-select-chapter-filter {
+  font-weight: 400;
+  display: flex;
+  font-size: 14px;
+  margin: 12px 0;
+
+  .chapter-filter-label {
+    display: inline-block;
+    width: 65px;
+    color: #98A2B2;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  .chapter-filter-widget {
+    flex: 1;
+
+    .ant-radio-button-wrapper {
+      height: 28px;
+      line-height: 28px;
+      font-size: 14px;
+      color: #505873;
+      padding: 0 8px;
+      border: 0;
+      margin-right: 4px;
+      margin-bottom: 8px;
+
+      &::before {
+        width: 0 !important;
+      }
+
+      &:hover {
+        background: #EBEDF0;
+        border-radius: 4px;
+      }
+
+      &.ant-radio-button-wrapper-checked {
+        color: #1890ff;
+        font-weight: 400;
+        background: rgba(24, 144, 255, 0.2);
+        border-radius: 4px;
+      }
+    }
+  }
+
+  // raido选中样式
+  .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within {
+    box-shadow: 0 0 0 3px transparent !important;
+  }
+}

@@ -1,0 +1,141 @@
+.lesson-tree-filter {
+  position: relative;
+  width: 600px;
+  height: 350px;
+
+  .select-radio-item {
+    position: relative;
+    width: 600px;
+    height: 310px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #d9d9d9;
+      border-radius: 32px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f0f0f0;
+      border-radius: 32px;
+    }
+    
+    // &:hover::-webkit-scrollbar-thumb {
+    //   background-color: #bfbfbf;
+    //   border-radius: 32px;
+    // }
+  }
+
+  > .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.chapter-tree-filter {
+  > .chapter-bread {
+    > .text {
+      display: inline-block;
+      max-width: 260px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+// 修改箭头位置
+.lesson-tree-filter-pop-container {
+
+  .searchItemWap {
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: flex;
+  
+    .itemL {
+      width: 80px;
+    }
+  
+    .itemR {
+      flex: 1;
+      font-size: 12px;
+  
+      .btn {
+        margin-bottom: 5px;
+        margin-right: 5px;
+        color: #474D6B;
+      }
+    }
+  }
+
+  .chapter-filter-item{
+    font-weight: 400;
+    display: flex;
+    font-size: 14px;
+    margin: 12px 0;
+    .chapter-filter-label{
+      display: inline-block;
+      width: 65px;
+      color: #98A2B2;
+      font-weight: 400;
+      line-height: 28px;
+    }
+    .chapter-filter-widget{
+      flex: 1;
+
+      .ant-radio-button-wrapper {
+        height: 28px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #505873;
+        padding: 0 8px;
+        border: 0;
+        margin-right: 4px;
+        margin-bottom: 8px;
+        &::before {
+          width: 0 !important;
+        }
+        &:hover {
+          background: #EBEDF0;
+          border-radius: 4px;
+        }
+        &.ant-radio-button-wrapper-checked {
+          color: #1890ff;
+          font-weight: 400;
+          background: rgba(24, 144, 255, 0.2);
+          border-radius: 4px;
+        }
+      }
+    }
+    
+    // raido选中样式
+    .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within {
+      box-shadow: 0 0 0 3px transparent!important;
+    }
+  }
+
+  .ant-btn-default {
+    width: 72px;
+    height: 28px;
+    color: #1890FF;
+    border: 1px solid #1890FF;
+    border-radius: 6px;
+  }
+
+  .ant-btn-primary {
+    width: 72px;
+    height: 28px;
+    background: #1890FF;
+    border-radius: 6px;
+  }
+
+  .ant-popover-arrow {
+    left: 140px !important;
+  }
+}

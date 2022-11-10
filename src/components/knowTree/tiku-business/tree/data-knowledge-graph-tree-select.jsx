@@ -1,7 +1,7 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
-import { Row, Icon, Spin, notification } from 'antd';
-import KnowledgeTree from './knowledge-tree';
+import { Spin } from 'antd';
+import KnowledgeTree from './knowledge-tree.jsx';
 import { fixedParams } from '../../tree-a/constant.js';
 import { traverseWholeTree } from '../../tree-a/filter.js';
 import { treeFetch } from '../../../../services/game/index.ts';
@@ -151,7 +151,7 @@ export default class KnowledgeTreeWithDataGraph extends React.Component {
       expandedKeys,
       autoExpandParent: false,
     });
-    this.tempExpandKey = this.tempExpandKey.concat(expandedKeys);
+    this.tempExpandKey = expandedKeys
     this.props.onExpand && this.props.onExpand(node);
   };
 
@@ -236,7 +236,7 @@ export default class KnowledgeTreeWithDataGraph extends React.Component {
       searchValue: value,
       autoExpandParent: false,
     });
-    this.tempExpandKey = this.tempExpandKey.concat(expandedKeys);
+    this.tempExpandKey = [...new Set(this.tempExpandKey.concat(expandedKeys))];
   };
 
   render() {

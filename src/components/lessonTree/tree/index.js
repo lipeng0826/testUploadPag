@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Tree, message } from 'antd';
-import { getListCourseInfoByCondition, listLessonListByClassType } from '../../../services/gameList';
+import { getListCourseInfoByCondition, listLessonListByClassType } from '@/services/gameList';
 import { CaretDownOutlined } from '@ant-design/icons';
-
+import "./index.less"
 const SearchLesson = props => {
   const [treeData, setTreeData] = useState([]);
-  const { subjectProductId, multiple, lessonSearchObj, onSelect, selectedKeys } = props;
+  const { subjectProductId, multiple, lessonSearchObj, selectedKeys, setSelectedKeys } = props;
   useEffect(() => {
     // 没有数据不请求接口
     if (!lessonSearchObj.gradeId) {
@@ -67,8 +67,27 @@ const SearchLesson = props => {
       return node;
     });
 
+    // 选择
+    const onSelect = (selectedKeys, { selected, selectedNodes, node, event }) => {
+      // console.log(selectedKeys, selected, selectedNodes, node, event, 'selected, selectedNodes, node, event');
+        setSelectedKeys(selectedKeys)
+        let updateNode = {};
+      // 点击课程
+      if (!node.isLeaf) {
+        const { classTypeId, courseName } = node
+        updateNode = {classTypeId, courseName, type: 3 }
+        console.log(updateNode, 'updateNode-course');
+      } else {
+        // 点击讲次
+        const { classTypeId, lessonId, lessonName, courseName } = node;
+        updateNode = {classTypeId, lessonId, lessonName, courseName, type: 4}
+        console.log(updateNode, 'updateNode-lessson');
+      }
+      props.onSelect(selectedKeys, updateNode, { selected }, undefined, selected)
+    };
+
   return (
-    <div>
+    <div className='question-query-tree lesson-select-tree-tree'>
       {
         treeData.length > 0 ?
           <Tree

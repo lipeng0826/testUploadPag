@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Radio, message, Popover, Button, Spin } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { getDictionary } from '../../../services/gameList';
+import { getDictionary } from '@/services/gameList';
 import './index.less';
 
 let originData = {};
@@ -97,12 +97,9 @@ const SearchLesson = (props) => {
     return (
       <>
         {data.length > 0 && (
-          // <div className='searchItemWap'>
-          //   <div className='itemL'>{label}: </div>
-          //   <div className='itemR'>
-          <div className='chapter-filter-item'>
-            <div className='chapter-filter-label'>{label}: </div>
-            <div className='chapter-filter-widget'>
+          <div className="chapter-filter-item">
+            <div className="chapter-filter-label">{label}: </div>
+            <div className="chapter-filter-widget">
               <Radio.Group
                 size="small"
                 value={tempSearch[id]}
@@ -110,7 +107,7 @@ const SearchLesson = (props) => {
                 buttonStyle="solid"
               >
                 {data.map((i) => (
-                  <Radio.Button value={i.id} key={i.id} className='btn'>
+                  <Radio.Button value={i.id} key={i.id} className="btn">
                     {i.name}
                   </Radio.Button>
                 ))}
@@ -172,34 +169,36 @@ const SearchLesson = (props) => {
   );
 
   return (
-    <div className="chapter-tree-filter">
-      <Popover
-        overlayClassName="lesson-tree-filter-pop-container"
-        visible={isChange}
-        onVisibleChange={handleVisibleChange}
-        placement="bottomLeft"
-        trigger="hover"
-        // trigger="click"
-        content={
-          <div className="lesson-tree-filter">
-            <div className="select-radio-item">
-              {searchConfig.map(
-                (i) => dicData[i.dic] && renderItems(i.label, i.id, dicData[i.dic]),
-              )}
+    <div className="lesson-tree-filter-wrapper">
+      <div className="chapter-tree-filter">
+        <Popover
+          overlayClassName="lesson-tree-filter-pop-container"
+          visible={isChange}
+          onVisibleChange={handleVisibleChange}
+          placement="bottomLeft"
+          trigger="hover"
+          // trigger="click"
+          content={
+            <div className="lesson-tree-filter">
+              <div className="select-radio-item">
+                {searchConfig.map(
+                  (i) => dicData[i.dic] && renderItems(i.label, i.id, dicData[i.dic]),
+                )}
+              </div>
+              <div className="btn" style={{ textAlign: 'right' }}>
+                <Button style={{ marginRight: 10 }} size="small" onClick={onCancel}>
+                  取消
+                </Button>
+                <Button type="primary" size="small" onClick={onOk}>
+                  确认
+                </Button>
+              </div>
             </div>
-            <div className="btn" style={{ textAlign: 'right' }}>
-              <Button style={{ marginRight: 10 }} size="small" onClick={onCancel}>
-                取消
-              </Button>
-              <Button type="primary" size="small" onClick={onOk}>
-                确认
-              </Button>
-            </div>
-          </div>
-        }
-      >
-        {renderMonitor()}
-      </Popover>
+          }
+        >
+          {renderMonitor()}
+        </Popover>
+      </div>
     </div>
   );
 };

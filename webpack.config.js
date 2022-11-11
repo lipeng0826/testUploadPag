@@ -11,7 +11,7 @@ module.exports = env => {
 		context: process.cwd(),
 		entry: './src/index.js',
 		mode,
-		devtool: 'source-map',
+		// devtool: 'source-map',
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: 'bundle.js',

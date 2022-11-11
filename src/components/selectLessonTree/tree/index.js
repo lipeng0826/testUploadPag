@@ -22,7 +22,7 @@ const SearchLesson = props => {
       courseCategoryId: lessonSearchObj.courseCategoryId, // 课程类型
     };
     getListCourseInfoByCondition(pramas).then(res => {
-      res.data?.forEach(i => {
+      res.data.forEach(i => {
         i.key = i.classTypeId + '';
         i.title = i.courseName;
         i.isLeaf = false; // 不设置 当没有子节点的时候 会显示为线 而不是展开按钮

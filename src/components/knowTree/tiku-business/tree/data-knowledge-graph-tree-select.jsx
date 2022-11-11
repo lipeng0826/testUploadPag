@@ -53,7 +53,7 @@ export default class KnowledgeTreeWithDataGraph extends React.Component {
     //   (forwardRef.current = () => {
     //     this.deleteSelected();
     //   });
-    this.props.onRef(this)
+    this.props.onRef && this.props.onRef(this)
     const { subjectProductId, showReviewModel } = this.state;
     this.getKnowledgeData(subjectProductId, showReviewModel);
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Tree, message } from 'antd';
-import { getListCourseInfoByCondition, listLessonListByClassType } from '@/services/gameList';
+import { getListCourseInfoByCondition, listLessonListByClassType } from '../../../services/gameList';
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./index.less"
 const SearchLesson = props => {
@@ -22,7 +22,7 @@ const SearchLesson = props => {
       courseCategoryId: lessonSearchObj.courseCategoryId, // 课程类型
     };
     getListCourseInfoByCondition(pramas).then(res => {
-      res.data?.forEach(i => {
+      (res.data || []).forEach(i => {
         i.key = i.classTypeId + '';
         i.title = i.courseName;
         i.isLeaf = false; // 不设置 当没有子节点的时候 会显示为线 而不是展开按钮
@@ -68,7 +68,7 @@ const SearchLesson = props => {
     });
 
     // 选择
-    const onSelect = (selectedKeys, { selected, selectedNodes, node, event }) => {
+    const onSelectInner = (selectedKeys, { selected, selectedNodes, node, event }) => {
       // console.log(selectedKeys, selected, selectedNodes, node, event, 'selected, selectedNodes, node, event');
         setSelectedKeys(selectedKeys)
         let updateNode = {};
@@ -83,7 +83,7 @@ const SearchLesson = props => {
         updateNode = {classTypeId, lessonId, lessonName, courseName, type: 4}
         console.log(updateNode, 'updateNode-lessson');
       }
-      props.onSelect(selectedKeys, updateNode, { selected }, undefined, selected)
+      // props.onSelect(selectedKeys, updateNode, { selected }, undefined, selected)
     };
 
   return (
@@ -98,7 +98,7 @@ const SearchLesson = props => {
             showIcon={true}
             loadData={onLoadData}
             switcherIcon={<CaretDownOutlined />}
-            onSelect={onSelect}
+            onSelect={onSelectInner}
           />
           :
           <div style={{ textAlign: 'center', color: '#595959', marginTop: 10 }}> 暂无数据</div>

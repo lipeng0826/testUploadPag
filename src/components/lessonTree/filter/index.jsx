@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Radio, message, Popover, Button, Spin } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { getDictionary } from '@/services/gameList';
+import { getDictionary } from '../../../services/gameList';
 import './index.less';
 
 let originData = {};
@@ -140,8 +140,8 @@ const SearchLesson = (props) => {
 
   const getName = useCallback(
     (type, id) => {
-      const info = dicData[type]?.find((item) => item.id === id);
-      return info?.name || '';
+      const info = (dicData[type] || []).find((item) => item.id === id);
+      return (info || {}).name || '';
     },
     [dicData],
   );

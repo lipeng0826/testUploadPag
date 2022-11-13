@@ -101,7 +101,7 @@ const SearchLesson = props => {
     );
   };
 
-  return <div>{searchConfig.map(i => dicData[i.dic] && renderItems(i.label, i.id, dicData[i.dic]))}</div>;
+  return <div className='interact-create-lesson-select-filter-wrapper'>{searchConfig.map(i => dicData[i.dic] && renderItems(i.label, i.id, dicData[i.dic]))}</div>;
 };
 
 export default SearchLesson;

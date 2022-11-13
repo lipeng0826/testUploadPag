@@ -10,7 +10,7 @@ module.exports = env => {
 	return ({
 		context: process.cwd(),
 		entry: './src/index.js',
-		mode,
+		// mode: 'development',
 		// devtool: 'source-map',
 		output: {
 			path: path.resolve(__dirname, 'dist'),
@@ -23,7 +23,7 @@ module.exports = env => {
 		module: {
 			rules: [
 				{
-					test: /(\.js|\.tsx|\.ts)$/,
+					test: /(\.js|\.jsx|\.tsx|\.ts)$/,
 					exclude: /node_modules/,
 					use: [
 						{

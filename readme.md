@@ -1,18 +1,27 @@
 # 知识图谱树&讲次树封装
 
-## 目前一共导出来了 6 个组件
+## 目前一共导出了 6 个组件
 
-    知识图谱树2个：一个是单选的，1个是多选的
+    知识图谱树2个：1个是选择树，1个是绑定树
     讲次树4个：单选的2个（树和它的头部），多选的2个（树和它的头部）
+
+```ts
+export {default as KnowledgeTree} from './components/knowTree/tiku-business/tree/data-knowledge-graph-tree.jsx';
+export { SelectLessonFilter, SelectLessonTree } from './components/lessonTree/index.jsx';
+export {default as SelectKnowTree} from './components/knowTree/tiku-business/tree/data-knowledge-graph-tree-select.jsx';
+export { BindLessonFilter, BindLessonTree } from './components/bindLessonTree/index.jsx';
+```
 
 ## 如何在 react 中使用
 
+    npm install test-upload-pag
     本项目使用react开发，react可以直接引入本组件
 
 ## 如何在 vue 中使用
 
     1.vue使用本组件需要先安装下面这个包
     2.https://github.com/devilwjp/vuereact-combined
+    3.然后使用 applyReactInVue 包裹导出来的组件转化成vue组件
 
     ```vue
     <template>
@@ -64,6 +73,22 @@
     使用 npm link
     官网: https://docs.npmjs.com/cli/v8/commands/npm-link
 
-## 可视化
+## react 调试
 
-    1.使用一个类似antd的文档工具增加入口页面(storybook,dumi)
+    包的根目录：
+        npm run start
+        启动调试页面
+    注：
+        1.需要登录admin.aixuexi.com
+        2.同时将域名改成：http:local.aixuexi.com:8080
+        就可以使用到admin的cookie，保持登录状态
+
+## vue 调试
+
+
+## 发包
+
+    1.修改完，调试好之后
+    2.npm run build 打包
+    3.更新版本号 npm publish
+

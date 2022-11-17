@@ -1,0 +1,36 @@
+.scroll-bar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    border-radius: 32px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 32px;
+  }
+}
+
+.game-lesson-select-wrapper {
+  height: calc(100vh - 200px);
+  overflow: auto;
+  display: flex;
+  .scroll-bar();
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    height: 100%;
+  }
+
+  .list {
+    width: 350px;
+    margin-left: 20px;
+  }
+}

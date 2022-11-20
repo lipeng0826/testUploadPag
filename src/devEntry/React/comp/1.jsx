@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Button } from "antd";
-import { KnowledgeTree } from "../../../index.js";
+import { KnowledgeTree } from "../../../index.jsx";
 
 const TestDemo = (props) => {
   const onSelect = (selectedKeys, node, { selected }, filterConditions) => {

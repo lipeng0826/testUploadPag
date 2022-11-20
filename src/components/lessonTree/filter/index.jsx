@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Radio, message, Popover, Button, Spin } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { getDictionary } from '../../../services/gameList';
+import { getDictionary } from '../../../services/gameList/index.js';
 import './index.less';
 
 let originData = {};
@@ -95,7 +95,7 @@ const SearchLesson = (props) => {
 
   const renderItems = (label, id, data) => {
     return (
-      <>
+      <div>
         {data.length > 0 && (
           <div className="chapter-filter-item">
             <div className="chapter-filter-label">{label}: </div>
@@ -115,7 +115,7 @@ const SearchLesson = (props) => {
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   };
 

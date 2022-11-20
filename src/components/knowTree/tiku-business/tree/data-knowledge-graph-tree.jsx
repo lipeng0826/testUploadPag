@@ -4,7 +4,7 @@ import { Spin } from 'antd';
 import KnowledgeTree from './knowledge-tree.jsx';
 import { fixedParams } from '../../tree-a/constant.js';
 import { traverseWholeTree } from '../../tree-a/filter.js';
-import { treeFetch } from '../../../../services/game/index.ts';
+import { treeFetch } from '../../../../services/game/index.js';
 
 import './tree.less';
 

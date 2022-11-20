@@ -1,6 +1,6 @@
 import request from 'umi-request';
 
-const filter = (url: string) => {
+const filter = (url) => {
   const domain = url.split('?')[0]; // domain = "https://example.com"
   const queries = url.split('?')[1].split('&'); // 获取所有的参数键值对
   // 对参数键值对进行过滤，把value为空的参数键值对过滤掉，然后用 & 拼接
@@ -8,7 +8,7 @@ const filter = (url: string) => {
 };
 
 // 获取模板列表数据
-export async function treeFetch(params: any) {
+export async function treeFetch(params) {
   return request(`/tiku/jtdirectory/getDiretoryKnowledgeTree`, {
     method: 'POST',
     data: params,
@@ -16,7 +16,7 @@ export async function treeFetch(params: any) {
 }
 
 // 获取游戏列表接口
-export async function gameListFetch(params: any) {
+export async function gameListFetch(params) {
   const {
     subjectId = '', // 学科id
     topicType = '',
@@ -47,7 +47,7 @@ export async function gameListFetch(params: any) {
 }
 
 // 互动游戏上下架接口
-export async function gameUpdateStatus(params: any) {
+export async function gameUpdateStatus(params) {
   return request(`/api/slideGame/game/${params.uri}/status/${params.status}`, {
     method: 'PUT',
     data: {},
@@ -56,7 +56,7 @@ export async function gameUpdateStatus(params: any) {
 
 // 互动游戏复制接口
 // https://yapi.aixuexi.com/project/923/interface/api/197726
-export async function copyGame(params: any) {
+export async function copyGame(params) {
   return request(`/api/slideGame/game/${params.uri}/copyGame`, {
     method: 'POST',
     data: {},
@@ -65,7 +65,7 @@ export async function copyGame(params: any) {
 
 // 互动游戏新增接口
 // https://yapi.aixuexi.com/project/923/interface/api/197717
-export async function addGameFetch(params: any) {
+export async function addGameFetch(params) {
   return request(`/api/slideGame/game/gameProfile`, {
     method: 'POST',
     data: params,
@@ -74,7 +74,7 @@ export async function addGameFetch(params: any) {
 
 // 获取互动游戏by URI
 // https://yapi.aixuexi.com/project/923/interface/api/197723
-export async function getGameFetch(params: any) {
+export async function getGameFetch(params) {
   return request(`/api/slideGame/game/gameProfile/${params.uri}`, {
     method: 'GET',
     data: {},
@@ -83,7 +83,7 @@ export async function getGameFetch(params: any) {
 
 // 互动游戏编辑接口
 // https://yapi.aixuexi.com/project/923/interface/api/197720
-export async function editGameFetch(params: any) {
+export async function editGameFetch(params) {
   return request(`/api/slideGame/game/gameProfile/${params.uri}`, {
     method: 'PUT',
     data: params,
@@ -92,7 +92,7 @@ export async function editGameFetch(params: any) {
 
 // 课程讲次树筛选接口
 // https://yapi.aixuexi.com/project/923/interface/api/197729
-export async function getLessonTreeList(params: any) {
+export async function getLessonTreeList(params) {
   return request(`/api/slideGame/admin/courseLessonDictionary`, {
     method: 'GET',
     data: {},
@@ -101,7 +101,7 @@ export async function getLessonTreeList(params: any) {
 
 // 课程讲次树筛选接口
 // https://yapi.aixuexi.com/project/923/interface/api/197729
-export async function getLessonTreeClassList(params: any) {
+export async function getLessonTreeClassList(params) {
   return request(
     `/api/slideGame/admin/courseList?subjectProductId=${params.subjectProductId}&gradeId=${params.gradeId}&bookVersionId=${params.bookVersionId}&schemeId=${params.schemeId}&periodId=${params.periodId}&courseCategoryId=${params.courseCategoryId}`,
     {
@@ -113,7 +113,7 @@ export async function getLessonTreeClassList(params: any) {
 
 // 课程讲次树筛选接口
 // https://yapi.aixuexi.com/project/923/interface/api/197735
-export async function getLessonTreeLessonList(params: any) {
+export async function getLessonTreeLessonList(params) {
   return request(`/api/slideGame/admin/lessonList?classTypeId=${params.classTypeId}`, {
     method: 'GET',
     data: {},

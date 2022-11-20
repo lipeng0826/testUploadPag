@@ -9,11 +9,11 @@ module.exports = env => {
 		entry: './src/devEntry/React/index.js',
 		mode: 'development',
 		devtool: 'source-map',
-		// output: {
-		// 	path: path.resolve(__dirname, 'dist'),
-		// 	filename: 'bundle.js',
-		// 	libraryTarget: 'umd'
-		// },
+		output: {
+			path: path.resolve(__dirname, 'dist'),
+			filename: 'bundle.js',
+			libraryTarget: 'umd'
+		},
 		resolve: {
 			extensions: ['.js', '.jsx', '.ts', '.tsx', '.less']
 		},

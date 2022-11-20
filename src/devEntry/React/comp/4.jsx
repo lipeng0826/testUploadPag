@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { BindLessonFilter, BindLessonTree } from "../../../index.js";
+import { BindLessonFilter, BindLessonTree } from "../../../index.jsx";
 import './4.less'
 
 const LessonSelect = (props) => {

@@ -9,8 +9,8 @@ const ijiaoyanHost = 'https://ijiaoyan.aixuexi.com';
 module.exports = env => {
 	return ({
 		context: process.cwd(),
-		entry: './src/index.js',
-		// mode: 'development',
+		entry: './src/index.jsx',
+		mode,
 		// devtool: 'source-map',
 		output: {
 			path: path.resolve(__dirname, 'dist'),

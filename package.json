@@ -6,7 +6,6 @@
   "scripts": {
     "build": "cross-env mode=production webpack",
     "start": "webpack serve --config webpack-react.config.js",
-    "start-vue": "webpack serve --config webpack-vue.config.js",
     "upload": "gulp upload"
   },
   "keywords": [],

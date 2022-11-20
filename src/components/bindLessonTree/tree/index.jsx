@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Tree, message } from 'antd';
-import { getListCourseInfoByCondition, listLessonListByClassType } from '../../../services/gameList';
+import { getListCourseInfoByCondition, listLessonListByClassType } from '../../../services/gameList/index.js';
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./index.less"
+
 const SearchLesson = props => {
   const [treeData, setTreeData] = useState([]);
-  const { subjectProductId, multiple, lessonSearchObj, selectedKeys, setSelectedKeys } = props;
+  const { subjectProductId, multiple, lessonSearchObj, onSelect, allLesson = [], expandedKeys = [], onExpand } = props;
   useEffect(() => {
     // 没有数据不请求接口
     if (!lessonSearchObj.gradeId) {
@@ -23,9 +24,8 @@ const SearchLesson = props => {
     };
     getListCourseInfoByCondition(pramas).then(res => {
       (res.data || []).forEach(i => {
-        i.key = i.classTypeId + '';
+        i.key = i.classTypeId;
         i.title = i.courseName;
-        i.isLeaf = false; // 不设置 当没有子节点的时候 会显示为线 而不是展开按钮
       });
       setTreeData(res.data);
     });
@@ -67,42 +67,25 @@ const SearchLesson = props => {
       return node;
     });
 
-    // 选择
-    const onSelectInner = (selectedKeys, { selected, selectedNodes, node, event }) => {
-      // console.log(selectedKeys, selected, selectedNodes, node, event, 'selected, selectedNodes, node, event');
-        setSelectedKeys(selectedKeys)
-        let updateNode = {};
-      // 点击课程
-      if (!node.isLeaf) {
-        const { classTypeId, courseName } = node
-        updateNode = {classTypeId, courseName, type: 3 }
-        console.log(updateNode, 'updateNode-course');
-      } else {
-        // 点击讲次
-        const { classTypeId, lessonId, lessonName, courseName } = node;
-        updateNode = {classTypeId, lessonId, lessonName, courseName, type: 4}
-        console.log(updateNode, 'updateNode-lessson');
-      }
-      // props.onSelect(selectedKeys, updateNode, { selected }, undefined, selected)
-    };
-
   return (
     <div className='question-query-tree lesson-select-tree-tree'>
       {
-        treeData.length > 0 ?
-          <Tree
-            selectedKeys={selectedKeys}
-            multiple={multiple}
-            treeData={treeData}
-            showLine={false}
-            showIcon={true}
-            loadData={onLoadData}
-            switcherIcon={<CaretDownOutlined />}
-            onSelect={onSelectInner}
-          />
-          :
-          <div style={{ textAlign: 'center', color: '#595959', marginTop: 10 }}> 暂无数据</div>
-      }
+      treeData.length > 0 ?
+      <Tree
+        multiple={multiple}
+        treeData={treeData}
+        showLine={false}
+        showIcon={true}
+        loadData={onLoadData}
+        switcherIcon={<CaretDownOutlined />}
+        onSelect={onSelect}
+        selectedKeys={(allLesson || []).map(item => item.lessonId + '')}
+        onExpand={onExpand}
+        expandedKeys={expandedKeys}
+      />
+      :
+      <div style={{ textAlign: 'center', color: '#595959', marginTop: 10 }}> 暂无数据</div>
+    }
     </div>
   );
 };

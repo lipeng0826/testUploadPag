@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from "antd"
-import { SelectLessonFilter, SelectLessonTree } from "../../../index.js";
+import { SelectLessonFilter, SelectLessonTree } from "../../../index.jsx";
 import './2.less';
 
 const TestDemo = (props) => {

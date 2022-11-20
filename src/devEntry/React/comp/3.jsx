@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SelectKnowTree } from "../../../index.js";
+import { SelectKnowTree } from "../../../index.jsx";
 import { CloseOutlined } from "@ant-design/icons";
 
 let child = null

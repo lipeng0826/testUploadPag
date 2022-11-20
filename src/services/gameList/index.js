@@ -1,6 +1,6 @@
 import request from 'umi-request';
 
-const filter = (url: string) => {
+const filter = (url) => {
   const domain = url.split('?')[0]; // domain = "https://example.com"
   const queries = url.split('?')[1].split('&'); // 获取所有的参数键值对
   // 对参数键值对进行过滤，把value为空的参数键值对过滤掉，然后用 & 拼接
@@ -9,7 +9,7 @@ const filter = (url: string) => {
 
 // 课程讲次树筛选接口
 // https://yapi.aixuexi.com/project/923/interface/api/197729
-export async function getDictionary(params: any) {
+export async function getDictionary(params) {
   return request(`/api/slideGame/admin/courseLessonDictionary`, {
     method: 'GET',
     data: {},
@@ -18,7 +18,7 @@ export async function getDictionary(params: any) {
 
 // 课程讲次树-获取班型列表
 // https://yapi.aixuexi.com/project/923/interface/api/197729
-export async function getListCourseInfoByCondition(params: any) {
+export async function getListCourseInfoByCondition(params) {
   const {
     subjectProductId = '',
     gradeId = '',
@@ -38,7 +38,7 @@ export async function getListCourseInfoByCondition(params: any) {
 
 // 课程讲次树-获取讲次列表
 // https://yapi.aixuexi.com/project/923/interface/api/197735
-export async function listLessonListByClassType(params: any) {
+export async function listLessonListByClassType(params) {
   return request(`/api/slideGame/admin/lessonList?classTypeId=${params.classTypeId}`, {
     method: 'GET',
     data: {},

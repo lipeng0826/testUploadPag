@@ -30,7 +30,6 @@ const TestDemo = (props) => {
             <SelectLessonTree
               selectedKeys={selectedKeys}
               setSelectedKeys={setSelectedKeys}
-              // lessonRef={lessonRef}
               multiple={false}
               subjectProductId={7}
               lessonSearchObj={lessonSearchObj}

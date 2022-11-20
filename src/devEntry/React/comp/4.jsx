@@ -17,7 +17,6 @@ const LessonSelect = (props) => {
     setAllLesson(allLesson.filter(item => item.lessonId != lessonId))
   }
 
-
   const onExpand = (expandedKeys) => setExpandedKeys(expandedKeys);
 
   // 选择
